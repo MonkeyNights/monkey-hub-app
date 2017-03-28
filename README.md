@@ -1,3 +1,5 @@
+![Badge](https://chohfi.visualstudio.com/_apis/public/build/definitions/b9a0172c-0926-42b8-af2f-249539773ba5/13/badge)
+
 # Monkey Hub App
 
 Olá, este é repositório do aplicativo Monkey Hub, aqui você vai encontrar todos os recursos para construção de um aplicativo mobile cross-plataforma utilizando Xamarin.Forms, seguindo os guias oficiais da Maratona Xamarin fase intermediaria. 
