@@ -31,5 +31,25 @@ namespace MonkeyHubApp.Services
 
             return null;
         }
+
+        public async Task<List<Content>> GetContentsByTagIdAsync(string tagId)
+        {
+            var httpClient = new HttpClient();
+            httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            var response = await httpClient.GetAsync($"{BaseUrl}Content/tag?tag={tagId}").ConfigureAwait(false);
+
+            if (response.IsSuccessStatusCode)
+            {
+                using (var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false))
+                {
+                    return JsonConvert.DeserializeObject<List<Content>>(
+                        await new StreamReader(responseStream)
+                            .ReadToEndAsync().ConfigureAwait(false));
+                }
+            }
+
+            return null;
+        }
     }
 }

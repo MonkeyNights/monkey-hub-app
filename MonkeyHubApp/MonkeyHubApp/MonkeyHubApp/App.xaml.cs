@@ -1,4 +1,6 @@
-﻿namespace MonkeyHubApp
+﻿using Xamarin.Forms;
+
+namespace MonkeyHubApp
 {
     public partial class App
     {
@@ -6,7 +8,7 @@
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new MainPage());
         }
 
         protected override void OnStart()

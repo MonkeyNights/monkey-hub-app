@@ -12,10 +12,18 @@ namespace MonkeyHubApp.ViewModels
 
         public Command AboutCommand { get; }
 
+        public Command<Tag> ShowCategoriaCommand { get; }
+
         public MainViewModel()
         {
             Tags = new ObservableCollection<Tag>();
             AboutCommand = new Command(ExecuteAboutCommand);
+            ShowCategoriaCommand = new Command<Tag>(ExecuteShowCategoriaCommand);
+        }
+
+        private async void ExecuteShowCategoriaCommand(Tag tag)
+        {
+            await PushAsync<CategoriaPage>(tag);
         }
 
         private async void ExecuteAboutCommand()

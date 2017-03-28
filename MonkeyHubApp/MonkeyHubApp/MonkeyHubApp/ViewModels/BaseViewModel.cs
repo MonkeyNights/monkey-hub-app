@@ -28,9 +28,9 @@ namespace MonkeyHubApp.ViewModels
             return true;
         }
 
-        public async Task PushAsync<TPage>() where TPage : Page
+        public async Task PushAsync<TPage>(params object[] args) where TPage : Page
         {
-            var page = Activator.CreateInstance(typeof(TPage)) as Page;
+            var page = Activator.CreateInstance(typeof(TPage), args) as Page;
 
             await Application.Current.MainPage.Navigation.PushAsync(page);
         }
