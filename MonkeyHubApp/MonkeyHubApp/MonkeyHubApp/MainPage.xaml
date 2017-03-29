@@ -2,7 +2,10 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MonkeyHubApp.MainPage">
-
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="About" Command="{Binding AboutCommand}"/>
+        <ToolbarItem Text="Buscar" Command="{Binding SearchCommand}"/>
+    </ContentPage.ToolbarItems>
     <ListView ItemsSource="{Binding Tags}" ItemSelected="ListView_OnItemSelected">
         <ListView.ItemTemplate>
             <DataTemplate>
@@ -10,5 +13,4 @@
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>
-
 </ContentPage>

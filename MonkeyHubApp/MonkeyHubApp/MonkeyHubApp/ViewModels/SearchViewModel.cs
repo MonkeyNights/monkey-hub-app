@@ -17,6 +17,7 @@ namespace MonkeyHubApp.ViewModels
             {
                 SetProperty(ref _searchTerm, value);
                 SearchCommand.ChangeCanExecute();
+                SearchResults.Clear();
             }
         }
 
@@ -47,6 +48,8 @@ namespace MonkeyHubApp.ViewModels
 
         private async void ExecuteSearchCommand()
         {
+            SearchTerm = "";
+
             var searchResults = await _monkeyHubApiService.GetContentsByFilterAsync(SearchTerm);
 
             SearchResults.Clear();
