@@ -25,12 +25,12 @@ namespace MonkeyHubApp.ViewModels
 
         private async void ExecuteShowCategoriaCommand(Tag tag)
         {
-            await PushAsync<CategoriaPage>(tag);
+            await PushAsync<CategoriaViewModel>(tag);
         }
 
         private async void ExecuteAboutCommand()
         {
-            await PushAsync<AboutPage>();
+            await PushAsync<AboutViewModel>();
         }
 
         public async Task LoadAsync()

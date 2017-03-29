@@ -1,14 +1,10 @@
-﻿using MonkeyHubApp.Models;
-using MonkeyHubApp.ViewModels;
-
-namespace MonkeyHubApp
+﻿namespace MonkeyHubApp
 {
     public partial class ContentWebPage
     {
-        public ContentWebPage(Content content)
+        public ContentWebPage()
         {
             InitializeComponent();
-            BindingContext = new ContentWebViewModel(content);
         }
     }
 }

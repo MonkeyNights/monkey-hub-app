@@ -1,28 +1,22 @@
-﻿using MonkeyHubApp.Models;
-using MonkeyHubApp.Services;
-using MonkeyHubApp.ViewModels;
-using Xamarin.Forms;
+﻿using MonkeyHubApp.ViewModels;
 
 namespace MonkeyHubApp
 {
     public partial class CategoriaPage
     {
-        private readonly CategoriaViewModel _viewModel;
+        private CategoriaViewModel ViewModel => BindingContext as CategoriaViewModel;
 
-        public CategoriaPage(Tag tag)
+        public CategoriaPage()
         {
             InitializeComponent();
-            var monkeyHubApiService = DependencyService.Get<IMonkeyHubApiService>();
-            _viewModel = new CategoriaViewModel(monkeyHubApiService, tag);
-            BindingContext = _viewModel;
         }
 
         protected override async void OnAppearing()
         {
             base.OnAppearing();
 
-            if (_viewModel != null)
-                await _viewModel.LoadAsync();
+            if (ViewModel != null)
+                await ViewModel.LoadAsync();
         }
     }
 }

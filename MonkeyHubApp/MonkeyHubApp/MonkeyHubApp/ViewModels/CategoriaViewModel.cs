@@ -26,7 +26,7 @@ namespace MonkeyHubApp.ViewModels
 
         private async void ExecuteShowContentCommand(Content content)
         {
-            await PushAsync<ContentWebPage>(content);
+            await PushAsync<ContentWebViewModel>(content);
         }
 
         public async Task LoadAsync()

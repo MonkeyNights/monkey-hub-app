@@ -6,22 +6,21 @@ namespace MonkeyHubApp
 {
     public partial class MainPage
     {
-        readonly MainViewModel _viewModel;
+        private MainViewModel ViewModel => BindingContext as MainViewModel;
 
         public MainPage()
         {
             InitializeComponent();
             var monkeyHubApiService = DependencyService.Get<IMonkeyHubApiService>();
-            _viewModel = new MainViewModel(monkeyHubApiService);
-            BindingContext = _viewModel;
+            BindingContext = new MainViewModel(monkeyHubApiService);
         }
 
         protected override async void OnAppearing()
         {
             base.OnAppearing();
 
-            if(_viewModel != null)
-                await _viewModel.LoadAsync();
+            if(ViewModel != null)
+                await ViewModel.LoadAsync();
         }
     }
 }
