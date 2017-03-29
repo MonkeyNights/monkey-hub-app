@@ -34,9 +34,9 @@ namespace MonkeyHubApp.ViewModels
             var contents = await _monkeyHubApiService.GetContentsByTagIdAsync(_tag.Id);
 
             Contents.Clear();
-            foreach (var tag in contents)
+            foreach (var content in contents)
             {
-                Contents.Add(tag);
+                Contents.Add(content);
             }
         }
     }

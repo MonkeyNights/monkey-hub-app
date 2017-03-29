@@ -13,6 +13,8 @@ namespace MonkeyHubApp.ViewModels
 
         public Command AboutCommand { get; }
 
+        public Command SearchCommand { get; }
+
         public Command<Tag> ShowCategoriaCommand { get; }
 
         public MainViewModel(IMonkeyHubApiService monkeyHubApiService)
@@ -20,7 +22,13 @@ namespace MonkeyHubApp.ViewModels
             _monkeyHubApiService = monkeyHubApiService;
             Tags = new ObservableCollection<Tag>();
             AboutCommand = new Command(ExecuteAboutCommand);
+            SearchCommand = new Command(ExecuteSearchCommand);
             ShowCategoriaCommand = new Command<Tag>(ExecuteShowCategoriaCommand);
+        }
+
+        private async void ExecuteSearchCommand()
+        {
+            await PushAsync<SearchViewModel>();
         }
 
         private async void ExecuteShowCategoriaCommand(Tag tag)
