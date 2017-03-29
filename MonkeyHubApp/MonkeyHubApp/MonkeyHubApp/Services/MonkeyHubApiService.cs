@@ -5,10 +5,12 @@ using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using MonkeyHubApp.Models;
 using Newtonsoft.Json;
+using Xamarin.Forms;
 
+[assembly: Dependency(typeof(MonkeyHubApp.Services.MonkeyHubApiService))]
 namespace MonkeyHubApp.Services
 {
-    public class MonkeyHubApiService
+    public class MonkeyHubApiService : IMonkeyHubApiService
     {
         private const string BaseUrl = "https://monkey-hub-api.azurewebsites.net/api/";
 

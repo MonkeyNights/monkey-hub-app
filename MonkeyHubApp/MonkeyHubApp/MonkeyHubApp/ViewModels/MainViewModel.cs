@@ -8,14 +8,16 @@ namespace MonkeyHubApp.ViewModels
 {
     public class MainViewModel : BaseViewModel
     {
+        private readonly IMonkeyHubApiService _monkeyHubApiService;
         public ObservableCollection<Tag> Tags { get; }
 
         public Command AboutCommand { get; }
 
         public Command<Tag> ShowCategoriaCommand { get; }
 
-        public MainViewModel()
+        public MainViewModel(IMonkeyHubApiService monkeyHubApiService)
         {
+            _monkeyHubApiService = monkeyHubApiService;
             Tags = new ObservableCollection<Tag>();
             AboutCommand = new Command(ExecuteAboutCommand);
             ShowCategoriaCommand = new Command<Tag>(ExecuteShowCategoriaCommand);
@@ -33,8 +35,7 @@ namespace MonkeyHubApp.ViewModels
 
         public async Task LoadAsync()
         {
-            var monkeyHubApiService = new MonkeyHubApiService();
-            var tags = await monkeyHubApiService.GetTagsAsync();
+            var tags = await _monkeyHubApiService.GetTagsAsync();
 
             Tags.Clear();
             foreach (var tag in tags)

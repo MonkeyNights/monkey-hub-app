@@ -8,14 +8,16 @@ namespace MonkeyHubApp.ViewModels
 {
     public class CategoriaViewModel : BaseViewModel
     {
+        private readonly IMonkeyHubApiService _monkeyHubApiService;
         private readonly Tag _tag;
 
         public ObservableCollection<Content> Contents { get; }
 
         public Command<Content> ShowContentCommand { get; }
 
-        public CategoriaViewModel(Tag tag)
+        public CategoriaViewModel(IMonkeyHubApiService monkeyHubApiService, Tag tag)
         {
+            _monkeyHubApiService = monkeyHubApiService;
             _tag = tag;
 
             Contents = new ObservableCollection<Content>();
@@ -29,8 +31,7 @@ namespace MonkeyHubApp.ViewModels
 
         public async Task LoadAsync()
         {
-            var monkeyHubApiService = new MonkeyHubApiService();
-            var contents = await monkeyHubApiService.GetContentsByTagIdAsync(_tag.Id);
+            var contents = await _monkeyHubApiService.GetContentsByTagIdAsync(_tag.Id);
 
             Contents.Clear();
             foreach (var tag in contents)

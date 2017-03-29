@@ -1,4 +1,6 @@
-﻿using MonkeyHubApp.ViewModels;
+﻿using MonkeyHubApp.Services;
+using MonkeyHubApp.ViewModels;
+using Xamarin.Forms;
 
 namespace MonkeyHubApp
 {
@@ -9,7 +11,8 @@ namespace MonkeyHubApp
         public MainPage()
         {
             InitializeComponent();
-            _viewModel = new MainViewModel();
+            var monkeyHubApiService = DependencyService.Get<IMonkeyHubApiService>();
+            _viewModel = new MainViewModel(monkeyHubApiService);
             BindingContext = _viewModel;
         }
 

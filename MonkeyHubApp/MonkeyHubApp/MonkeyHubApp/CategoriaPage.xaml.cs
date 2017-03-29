@@ -1,5 +1,7 @@
 ﻿using MonkeyHubApp.Models;
+using MonkeyHubApp.Services;
 using MonkeyHubApp.ViewModels;
+using Xamarin.Forms;
 
 namespace MonkeyHubApp
 {
@@ -10,7 +12,8 @@ namespace MonkeyHubApp
         public CategoriaPage(Tag tag)
         {
             InitializeComponent();
-            _viewModel = new CategoriaViewModel(tag);
+            var monkeyHubApiService = DependencyService.Get<IMonkeyHubApiService>();
+            _viewModel = new CategoriaViewModel(monkeyHubApiService, tag);
             BindingContext = _viewModel;
         }
 
