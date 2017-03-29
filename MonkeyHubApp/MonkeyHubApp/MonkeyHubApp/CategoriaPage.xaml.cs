@@ -1,4 +1,5 @@
 ﻿using MonkeyHubApp.ViewModels;
+using Xamarin.Forms;
 
 namespace MonkeyHubApp
 {
@@ -17,6 +18,14 @@ namespace MonkeyHubApp
 
             if (ViewModel != null)
                 await ViewModel.LoadAsync();
+        }
+
+        private void ListView_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            if (e.SelectedItem != null)
+            {
+                ViewModel.ShowContentCommand.Execute(e.SelectedItem);
+            }
         }
     }
 }
