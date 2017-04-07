@@ -50,12 +50,15 @@ namespace MonkeyHubApp.ViewModels
             var searchResults = await _monkeyHubApiService.GetContentsByFilterAsync(SearchTerm);
 
             SearchResults.Clear();
-            if (searchResults != null)
+            if (searchResults == null)
             {
-                foreach (var searchResult in searchResults)
-                {
-                    SearchResults.Add(searchResult);
-                }
+                await DisplayAlert("MonkeyHub", "Nenhum resultado encontrado.", "Ok");
+                return;
+            }
+
+            foreach (var searchResult in searchResults)
+            {
+                SearchResults.Add(searchResult);
             }
         }
     }
