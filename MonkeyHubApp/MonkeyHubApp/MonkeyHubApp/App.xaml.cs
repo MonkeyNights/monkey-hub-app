@@ -8,7 +8,12 @@ namespace MonkeyHubApp
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new MainPage());
+            MainPage = new NavigationPage(new MainPage())
+            {
+                BarBackgroundColor = Color.FromRgb(0, 167, 243),
+                BarTextColor = Color.White,
+                Title = "Monkey Hub"
+			};
         }
 
         protected override void OnStart()
