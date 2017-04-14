@@ -4,10 +4,30 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:base="clr-namespace:MonkeyHubApp;assembly=MonkeyHubApp"
     x:Class="MonkeyHubApp.CategoriaPage">
-    <ListView ItemsSource="{Binding Contents}" ItemSelected="ListView_OnItemSelected">
+    <ListView
+		HasUnevenRows="true"
+        SeparatorVisibility="None" 
+		ItemsSource="{Binding Contents}" 
+		ItemSelected="ListView_OnItemSelected">
         <ListView.ItemTemplate>
             <DataTemplate>
-                <ImageCell ImageSource="{Binding Banner}" Text="{Binding Name}" Detail="{Binding Description}"/>
+                <ViewCell>
+					<Frame Padding="0">
+                        <StackLayout Orientation="Vertical">
+                            <Image Source="{Binding Banner}" />
+
+                            <Label Text="{Binding Name}"
+								    Margin="20, 10, 20, 0"
+								    FontAttributes="Bold" 
+                                    FontSize="Medium" />
+                            
+                            <Label Text="{Binding Description}"
+                                    Margin="20, 5, 20, 15"
+                                    TextColor="Silver"
+                                    FontSize="Medium" />
+                        </StackLayout>
+                    </Frame>
+                </ViewCell>
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>
