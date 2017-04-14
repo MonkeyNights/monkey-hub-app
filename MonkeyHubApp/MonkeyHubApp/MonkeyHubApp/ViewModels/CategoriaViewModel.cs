@@ -29,7 +29,7 @@ namespace MonkeyHubApp.ViewModels
             await PushAsync<ContentWebViewModel>(content);
         }
 
-        public async Task LoadAsync()
+        public override async Task LoadAsync()
         {
             var contents = await _monkeyHubApiService.GetContentsByTagIdAsync(_tag.Id);
 

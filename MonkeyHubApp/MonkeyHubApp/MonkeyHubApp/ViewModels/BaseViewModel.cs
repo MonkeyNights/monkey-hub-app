@@ -12,6 +12,13 @@ namespace MonkeyHubApp.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
+        private string _title;
+        public string Title
+        {
+            get { return _title; }
+            set { SetProperty(ref _title, value); }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -56,6 +63,11 @@ namespace MonkeyHubApp.ViewModels
             }
 
             await Application.Current.MainPage.Navigation.PushAsync(page);
+        }
+
+        public virtual Task LoadAsync()
+        {
+            return Task.FromResult(0);
         }
 
         public async Task DisplayAlert(string title, string message, string cancel)

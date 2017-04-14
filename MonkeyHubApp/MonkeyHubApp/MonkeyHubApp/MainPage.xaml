@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MonkeyHubApp.MainPage">
+<base:BasePage  
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:base="clr-namespace:MonkeyHubApp;assembly=MonkeyHubApp"
+    x:Class="MonkeyHubApp.MainPage">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="About" Command="{Binding AboutCommand}"/>
         <ToolbarItem Text="Buscar" Command="{Binding SearchCommand}"/>
@@ -14,7 +16,6 @@
             <DataTemplate>
                 <ViewCell>
                     <StackLayout Padding="20, 30" Orientation="Vertical">
-
 						<Label Text="{Binding Name}"
 							   FontSize="Large"                   
                                TextColor="#FF5525"/>
@@ -26,4 +27,4 @@
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>
-</ContentPage>
+</base:BasePage>

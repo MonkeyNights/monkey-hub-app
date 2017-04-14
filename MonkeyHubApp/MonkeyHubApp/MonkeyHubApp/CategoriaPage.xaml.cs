@@ -1,4 +1,5 @@
-﻿using MonkeyHubApp.ViewModels;
+﻿using MonkeyHubApp.Services;
+using MonkeyHubApp.ViewModels;
 using Xamarin.Forms;
 
 namespace MonkeyHubApp
@@ -10,14 +11,6 @@ namespace MonkeyHubApp
         public CategoriaPage()
         {
             InitializeComponent();
-        }
-
-        protected override async void OnAppearing()
-        {
-            base.OnAppearing();
-
-            if (ViewModel != null)
-                await ViewModel.LoadAsync();
         }
 
         private void ListView_OnItemSelected(object sender, SelectedItemChangedEventArgs e)

@@ -24,6 +24,8 @@ namespace MonkeyHubApp.ViewModels
             AboutCommand = new Command(ExecuteAboutCommand);
             SearchCommand = new Command(ExecuteSearchCommand);
             ShowCategoriaCommand = new Command<Tag>(ExecuteShowCategoriaCommand);
+
+            Title = "Monkey Hub";
         }
 
         private async void ExecuteSearchCommand()
@@ -41,15 +43,18 @@ namespace MonkeyHubApp.ViewModels
             await PushAsync<AboutViewModel>();
         }
 
-        public async Task LoadAsync()
+        public override async Task LoadAsync()
         {
             var tags = await _monkeyHubApiService.GetTagsAsync();
 
+            System.Diagnostics.Debug.WriteLine("FOUND {0} TAGS", tags.Count); 
             Tags.Clear();
             foreach (var tag in tags)
             {
                 Tags.Add(tag);
             }
+
+            OnPropertyChanged(nameof(Tags));
         }
     }
 }

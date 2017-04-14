@@ -11,8 +11,7 @@ namespace MonkeyHubApp
             MainPage = new NavigationPage(new MainPage())
             {
                 BarBackgroundColor = Color.FromRgb(0, 167, 243),
-                BarTextColor = Color.White,
-                Title = "Monkey Hub"
+                BarTextColor = Color.White
 			};
         }
 

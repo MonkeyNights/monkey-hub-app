@@ -15,14 +15,6 @@ namespace MonkeyHubApp
             BindingContext = new MainViewModel(monkeyHubApiService);
         }
 
-        protected override async void OnAppearing()
-        {
-            base.OnAppearing();
-
-            if(ViewModel != null)
-                await ViewModel.LoadAsync();
-        }
-
         private void ListView_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             if (e.SelectedItem != null)
