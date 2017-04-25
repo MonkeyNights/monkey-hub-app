@@ -26,6 +26,7 @@ namespace MonkeyHubApp.Droid
 		
 		public static void UpdateIdValues()
 		{
+			global::Gcm.Client.Resource.String.library_name = global::MonkeyHubApp.Droid.Resource.String.library_name;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::MonkeyHubApp.Droid.Resource.Attribute.actionBarSize;
 		}
 		
@@ -3696,6 +3697,9 @@ namespace MonkeyHubApp.Droid
 			
 			// aapt resource value: 0x7f090037
 			public const int character_counter_pattern = 2131296311;
+			
+			// aapt resource value: 0x7f09003d
+			public const int library_name = 2131296317;
 			
 			// aapt resource value: 0x7f090000
 			public const int mr_button_content_description = 2131296256;
