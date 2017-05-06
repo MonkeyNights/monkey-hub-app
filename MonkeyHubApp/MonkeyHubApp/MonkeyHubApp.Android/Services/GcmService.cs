@@ -94,7 +94,7 @@ namespace MonkeyHubApp.Droid
             string message = intent.Extras.GetString("message");
             if (!string.IsNullOrEmpty(message))
             {
-                CreateNotification("New todo item!", "Todo item: " + message);
+                CreateNotification("Push", message);
                 return;
             }
 
