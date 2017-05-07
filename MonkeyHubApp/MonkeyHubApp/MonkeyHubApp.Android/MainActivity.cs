@@ -6,7 +6,11 @@ using System;
 
 namespace MonkeyHubApp.Droid
 {
-    [Activity(Label = "MonkeyHubApp", Icon = "@drawable/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "MonkeyHubApp", 
+        Icon = "@drawable/icon", 
+        Theme = "@style/MainTheme",
+        MainLauncher = true, 
+        ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         // Create a new instance field for this activity.
@@ -52,6 +56,7 @@ namespace MonkeyHubApp.Droid
             {
                 CreateAndShowDialog(e.Message, "Error");
             }
+
         }
 
         private void CreateAndShowDialog(string message, string title)

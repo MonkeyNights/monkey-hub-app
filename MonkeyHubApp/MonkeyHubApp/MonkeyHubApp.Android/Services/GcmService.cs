@@ -26,7 +26,7 @@ namespace MonkeyHubApp.Droid
     [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_LIBRARY_RETRY }, Categories = new string[] { "@PACKAGE_NAME@" })]
     public class PushHandlerBroadcastReceiver : GcmBroadcastReceiverBase<GcmService>
     {
-        public static string[] SENDER_IDS = new string[] { "334092605365" };
+        public static string[] SENDER_IDS = new string[] { "331380766946" };
     }
 
     [Service]
@@ -42,6 +42,7 @@ namespace MonkeyHubApp.Droid
         protected override void OnRegistered(Context context, string registrationId)
         {
             Log.Verbose("PushHandlerBroadcastReceiver", "GCM Registered: " + registrationId);
+
             RegistrationID = registrationId;
 
             var push = client.GetPush();
@@ -92,6 +93,7 @@ namespace MonkeyHubApp.Droid
             edit.Commit();
 
             string message = intent.Extras.GetString("message");
+
             if (!string.IsNullOrEmpty(message))
             {
                 CreateNotification("Push", message);
@@ -147,6 +149,5 @@ namespace MonkeyHubApp.Droid
             //Show the notification
             notificationManager.Notify(1, notification);
         }
-
     }
 }

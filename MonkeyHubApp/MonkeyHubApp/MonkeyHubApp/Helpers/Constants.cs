@@ -8,6 +8,6 @@ namespace MonkeyHubApp.Helpers
 {
     public static class Constants
     {
-        public static readonly string ApplicationURL = "https://monkeyhub.azurewebsites.net/";
+        public static readonly string ApplicationURL = "http://notificacaonoazure.azurewebsites.net/";
     }
 }
