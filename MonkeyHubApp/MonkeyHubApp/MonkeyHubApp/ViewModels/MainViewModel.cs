@@ -47,7 +47,7 @@ namespace MonkeyHubApp.ViewModels
         {
             var tags = await _monkeyHubApiService.GetTagsAsync();
 
-            System.Diagnostics.Debug.WriteLine("FOUND {0} TAGS", tags.Count); 
+            System.Diagnostics.Debug.WriteLine("FOUND {0} TAGS", tags?.Count);
             Tags.Clear();
             foreach (var tag in tags)
             {

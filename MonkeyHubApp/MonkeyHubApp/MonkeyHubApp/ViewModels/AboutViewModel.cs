@@ -1,9 +1,8 @@
-﻿using Version.Plugin;
-
-namespace MonkeyHubApp.ViewModels
+﻿namespace MonkeyHubApp.ViewModels
 {
     public class AboutViewModel : BaseViewModel
     {
-        public string Versao => CrossVersion.Current.Version;
+        //TODO: Get version from build
+        public string Versao => "1.0"; //CrossVersion.Current.Version;
     }
 }

@@ -17,6 +17,7 @@ namespace MonkeyHubApp.Services
 
         public async Task<List<Tag>> GetTagsAsync()
         {
+            var result = new List<Tag>();
             var httpClient = new HttpClient();
             httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
@@ -26,13 +27,13 @@ namespace MonkeyHubApp.Services
             {
                 using (var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false))
                 {
-                    return JsonConvert.DeserializeObject<List<Tag>>(
+                    result = JsonConvert.DeserializeObject<List<Tag>>(
                         await new StreamReader(responseStream)
                             .ReadToEndAsync().ConfigureAwait(false));
                 }
             }
 
-            return null;
+            return result;
         }
 
         public async Task<List<Content>> GetContentsByTagIdAsync(string tagId)
